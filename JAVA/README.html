@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%F0%9F%93%82-detailed-structure-and-content-of-java">📂 Detailed structure and content of JAVA/</h2>
+<pre class="hljs"><code><div>JAVA/
+├─ 01-platform/
+├─ 02-language/
+├─ 03-oop/
+├─ 04-collections-iterators/
+├─ 05-functional-streams/
+├─ 06-data-access/
+├─ 07-testing/
+├─ 08-http-apis/
+├─ 09-spring/
+└─ 10-architecture/
+└─ 11-patterns/
+...
+</div></code></pre>
+<h3 id="%F0%9F%93%8C-01-platform-%E2%86%92-ecosystem-and-tools">📌 01-platform/ → Ecosystem and tools</h3>
+<ul>
+<li>Here goes everything related to <strong>how Java works</strong>, what it is composed of, and <strong>which tools we work with.</strong>
+<ul>
+<li>JVM, JRE, JDK (differences, roles).</li>
+<li>Compilation process (javac → bytecode → execution with java).</li>
+<li>JDK tools (javac, java, jar, javadoc, jshell).</li>
+<li>Java versions and modules (since Java 9, java.base, java.sql).</li>
+<li>Dependency management: Maven and Gradle (project structure, pom.xml, lifecycle).</li>
+<li>IDEs and environment setup (IntelliJ, Eclipse, VS Code).</li>
+<li>Documentation (javadoc).</li>
+</ul>
+</li>
+<li>👉 Example file: platform/jvm-jdk.md, platform/maven.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-02-language-%E2%86%92-pure-language-java-se">📌 02-language/ → Pure language (Java SE)</h3>
+<ul>
+<li>Here goes everything that is <strong>syntax</strong>, <strong>rules</strong>, and <strong>construction</strong> of the language.
+<ul>
+<li>Basic syntax: primitive types, operators, variables, constants.</li>
+<li>Control flow: if, switch, for, while, do-while.</li>
+<li>Methods and overloading.</li>
+<li>Modifiers (public, private, protected, static, final, abstract).</li>
+<li>Strings and wrappers (Integer, Double, Boolean).</li>
+<li>Exception handling: try/catch/finally, throw, throws, checked vs unchecked.</li>
+<li>Inner and anonymous classes (when not in the context of collections).</li>
+</ul>
+</li>
+<li>👉 Example file: language/basic-syntax.md, language/exceptions.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-03-oop-%E2%86%92-object-oriented-programming">📌 03-oop/ → Object-Oriented Programming</h3>
+<ul>
+<li>Everything related to modeling with <strong>objects</strong> and <strong>classes</strong>.
+<ul>
+<li>OOP concepts: class, object, encapsulation.</li>
+<li>Inheritance and composition.</li>
+<li>Polymorphism.</li>
+<li>Interfaces and abstract classes.</li>
+<li>SOLID principles (introduction).</li>
+<li>Lombok (as a boilerplate simplifier).</li>
+</ul>
+</li>
+<li>👉 Example file: oop/inheritance-polymorphism.md, oop/interfaces.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-04-collections-iterators-%E2%86%92-collections-and-data-structures">📌 04-collections-iterators/ → Collections and data structures</h3>
+<ul>
+<li>Here goes the <strong>Java Collections Framework</strong> and <strong>data manipulation</strong>.
+<ul>
+<li>Arrays vs Collections.</li>
+<li>List, Set, Map.</li>
+<li>Iterators (Iterator, Iterable, for-each).</li>
+<li>Inner and anonymous classes applied to collections.</li>
+<li>Comparators and sorting.</li>
+<li>Implement your own collection by extending Collection or List.</li>
+</ul>
+</li>
+<li>👉 Example file: collections/list-set-map.md, collections/iterators.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-05-functional-streams-%E2%86%92-functional-and-streams">📌 05-functional-streams/ → Functional and Streams</h3>
+<ul>
+<li>Here goes everything <strong>new from modern Java</strong> (&gt;= 8).
+<ul>
+<li>Lambda expressions.</li>
+<li>Functional interfaces (Predicate, Function, Consumer, Supplier).</li>
+<li>Streams API: map, filter, reduce, collect.</li>
+<li>Optional.</li>
+<li>Functional programming in Java (what to do and what not to do).</li>
+<li>File processing (e.g., CSV with streams).</li>
+</ul>
+</li>
+<li>👉 Example file: functional/streams.md, functional/lambdas.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-06-data-access-%E2%86%92-data-access">📌 06-data-access/ → Data access</h3>
+<ul>
+<li>Everything related to <strong>persistence and database connection.</strong>
+<ul>
+<li>JDBC (drivers, Connection, Statement, ResultSet).</li>
+<li>JPA (Java Persistence API).</li>
+<li>Hibernate (most used ORM).</li>
+<li>1-1, 1-N, N-N relationships.</li>
+<li>Transactions and EntityManager.</li>
+</ul>
+</li>
+<li>👉 Example file: data-access/jdbc.md, data-access/jpa.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-07-testing-%E2%86%92-testing">📌 07-testing/ → Testing</h3>
+<ul>
+<li>Here goes everything related to <strong>Testing and code quality.</strong>
+<ul>
+<li>JUnit (basic tests).</li>
+<li>Test lifecycle (@BeforeEach, @AfterEach).</li>
+<li>Assertions.</li>
+<li>Mockito (mocks, stubs).</li>
+<li>TDD (Test Driven Development).</li>
+</ul>
+</li>
+<li>👉 Example file: testing/junit.md, testing/mockito.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-08-http-apis-%E2%86%92-http-and-api-design">📌 08-http-apis/ → HTTP and API design</h3>
+<ul>
+<li>Everything related to <strong>REST, HTTP and documentation.</strong>
+<ul>
+<li>HTTP: methods (GET, POST, PUT, DELETE), headers, status codes.</li>
+<li>REST principles: resources, URIs, versioning.</li>
+<li>API design (best practices).</li>
+<li>OpenAPI/Swagger (automatic documentation).</li>
+</ul>
+</li>
+<li>👉 Example file: http-apis/http-basics.md, http-apis/rest-design.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-09-spring-%E2%86%92-spring-and-spring-boot">📌 09-spring/ → Spring and Spring Boot</h3>
+<ul>
+<li>Here goes everything related to the <strong>framework</strong>.
+<ul>
+<li>Spring Core: IoC (Inversion of Control), DI (Dependency Injection).</li>
+<li>Spring Boot: auto-configuration, starters, application.yml.</li>
+<li>Spring MVC: controllers, REST endpoints, validation.</li>
+<li>Spring Data JPA: repositories, queries.</li>
+<li>Spring Security: authentication/authorization, JWT.</li>
+<li>Testing with Spring Boot.</li>
+</ul>
+</li>
+<li>👉 Example file: spring/spring-core.md, spring/spring-rest.md, spring/spring-data.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-10-architecture-%E2%86%92-architecture-only-the-necessary-because-is-topic-of-dsifull-microservices-here">📌 10-architecture/ → Architecture (ONLY THE NECESSARY because is topic of DSI)(Full microservices here)</h3>
+<ul>
+<li>Everything related to <strong>software architecture</strong> and <strong>application structure</strong>.
+<ul>
+<li>Layered architecture (Controller → Service → Repository).</li>
+<li>Hexagonal / Ports and Adapters.</li>
+<li>Microservices vs Monoliths.</li>
+<li>DTOs, Mappers, Entities.</li>
+<li>Architectural diagrams and 4+1 views.</li>
+<li>Quality attributes (availability, scalability, maintainability, security).</li>
+</ul>
+</li>
+<li>👉 Example file: architecture/layers.md, architecture/microservices.md, architecture/quality-attributes.md.</li>
+</ul>
+<h3 id="%F0%9F%93%8C-11-patterns-%E2%86%92-design-patterns">📌 11-patterns/ → Design patterns</h3>
+<ul>
+<li>Everything related to <strong>design patterns</strong> (reusable solutions at the code level).
+<ul>
+<li>Creational patterns: Factory, Builder, Singleton, Prototype.</li>
+<li>Structural patterns: Adapter, Decorator, Composite, Proxy.</li>
+<li>Behavioral patterns: Strategy, State, Observer, Iterator, Command.</li>
+<li>Domain-driven patterns: Repository, Aggregate, Value Object, Entity.</li>
+</ul>
+</li>
+<li>👉 Example file: patterns/strategy.md, patterns/observer.md, patterns/factory.md.</li>
+</ul>
+
+</body>
+</html>

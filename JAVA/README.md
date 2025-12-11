@@ -10,7 +10,8 @@ JAVA/
 ├─ 07-testing/
 ├─ 08-http-apis/
 ├─ 09-spring/
-└─ 10-architecture-patterns/
+└─ 10-architecture/
+└─ 11-patterns/
 ...
 ```
 
@@ -102,10 +103,20 @@ JAVA/
   - Testing with Spring Boot.
 - 👉 Example file: spring/spring-core.md, spring/spring-rest.md, spring/spring-data.md.
 
-### 📌 10-architecture-patterns/ → Architecture and patterns
-- Here goes everything that is more **general** and reusable.
+### 📌 10-architecture/ → Architecture (ONLY THE NECESSARY because is topic of DSI)(Full microservices here)
+- Everything related to **software architecture** and **application structure**.
   - Layered architecture (Controller → Service → Repository).
-  - DTOs, Mappers.
-  - Design patterns: Strategy, State, Observer, Factory, Builder, Singleton.
-  - Quality attributes (availability, scalability, maintainability).
-- 👉 Example file: architecture/patterns.md, architecture/layers.md.
+  - Hexagonal / Ports and Adapters.
+  - Microservices vs Monoliths.
+  - DTOs, Mappers, Entities.
+  - Architectural diagrams and 4+1 views.
+  - Quality attributes (availability, scalability, maintainability, security).
+- 👉 Example file: architecture/layers.md, architecture/microservices.md, architecture/quality-attributes.md.
+
+### 📌 11-patterns/ → Design patterns
+- Everything related to **design patterns** (reusable solutions at the code level).
+  - Creational patterns: Factory, Builder, Singleton, Prototype.
+  - Structural patterns: Adapter, Decorator, Composite, Proxy.
+  - Behavioral patterns: Strategy, State, Observer, Iterator, Command.
+  - Domain-driven patterns: Repository, Aggregate, Value Object, Entity.
+- 👉 Example file: patterns/strategy.md, patterns/observer.md, patterns/factory.md.
